@@ -29,7 +29,7 @@
                         <h2 class="form-title">Sign in</h2>
                         <form method="POST" class="register-form" id="login-form" action="login" >
                             @if (session('status'))
-                            <div class="alert alert-danger alert-dismissible">
+                            <div class="alert alert-warning alert-dismissible">
                                 <strong>{{ session('message') }}</strong>
                             </div>
                             @endif

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
@@ -60,6 +62,24 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
+        return redirect('/login');
+    }
+
+    public function create(Request $request)
+    {
+        $validated = $request->validate([
+            'username' => 'required|unique:users|max:100',
+            'password' => 'required|min:6',
+            'phone' => 'max:15',
+            'address' => 'required',
+        ]);
+
+        $validated['password'] = bcrypt($validated['password']);
+        // $request->password = Hash::make($request->password);
+
+        User::create($validated);
+        Session::flash('status', 'success');
+        Session::flash('message', 'Success, Now Waiting Account Activated!');
         return redirect('/login');
     }
 }
