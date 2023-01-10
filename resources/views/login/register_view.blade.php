@@ -8,10 +8,10 @@
     <title>Sign Up Form by Colorlib</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="{{ asset('/login') }}/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="{{ asset('/loginVendor') }}/fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="{{ asset('/login') }}/css/style.css">
+    <link rel="stylesheet" href="{{ asset('/loginVendor') }}/css/style.css">
 </head>
 <body>
 
@@ -24,6 +24,7 @@
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
                         <form method="POST" class="register-form" id="register-form">
+                            @csrf
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="name" id="name" placeholder="Username"/>
@@ -47,7 +48,7 @@
                         </form>
                     </div>
                     <div class="signup-image">
-                        <figure><img src="{{ asset('/login') }}/images/signup-image.jpg" alt="sing up image"></figure>
+                        <figure><img src="{{ asset('/loginvendor') }}/images/signup-image.jpg" alt="sing up image"></figure>
                        
                     </div>
                 </div>
@@ -59,7 +60,7 @@
     </div>
 
     <!-- JS -->
-    <script src="{{ asset('/login') }}/vendor/jquery/jquery.min.js"></script>
-    <script src="{{ asset('/login') }}/js/main.js"></script>
+    <script src="{{ asset('/loginVendor') }}/vendor/jquery/jquery.min.js"></script>
+    <script src="{{ asset('/loginVendor') }}/js/main.js"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
