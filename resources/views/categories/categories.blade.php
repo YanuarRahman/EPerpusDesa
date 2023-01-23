@@ -4,6 +4,16 @@
     <div class="text-start">
       <a href="/categories/create" class="btn btn-success btn-icon btn-sm" role="button">Add Category <i class="ni ni-fat-add"></i></a>
     </div>
+
+    {{-- flash --}}
+    @if(session()->has('success'))
+      <div class="col-md-6">
+          <div class="alert alert-success alert-dismissible">
+            {{ session('success') }}
+          </div>
+      </div>
+@endif
+
  <div class="row">
   <div class="col-md-8">
     <table class="table">
@@ -35,5 +45,15 @@
   </table>
   </div>
  </div>
+
+ <script>
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove(); 
+    });
+  }, 5000);
+</script>
+
+
 @endsection  
   

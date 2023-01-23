@@ -46,11 +46,11 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'name' => 'required|max:15|',
+            'name' => 'required|max:15|min:3|unique:categories',
         ]);
 
         Category::create($validateData);
-        return redirect('categories');
+        return redirect('categories')->with('success', "Data Success Added");
 
         // dd($request->all());
     }
