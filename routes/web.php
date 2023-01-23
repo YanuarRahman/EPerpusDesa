@@ -45,5 +45,8 @@ Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'only_admin']);
 Route::get('/profile', [UserController::class, 'profile'])->middleware(['auth', 'only_client']);
 Route::get('/books', [BookController::class, 'index']);
-Route::get('/categories', [CategoryController::class, 'index']);
+
+Route::resource('/categories', CategoryController::class);
+// Route::get('/categories', [CategoryController::class, 'index']);
+
 Route::get('/rent-logs', [RentLogController::class, 'index']);

@@ -2,9 +2,7 @@
 @section('container')
   <h6>Category</h6>
     <div class="text-start">
-      <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm" data-original-title="" title="">
-        Add Category<i class="ni ni-fat-add"></i>
-      </button>
+      <a href="/categories/create" class="btn btn-success btn-icon btn-sm" role="button">Add Category <i class="ni ni-fat-add"></i></a>
     </div>
  <div class="row">
   <div class="col-md-8">
@@ -17,10 +15,10 @@
           </tr>
       </thead>
       <tbody>
-        @foreach ($categories as $category)
+        @foreach ($categories as $categoryy)
           <tr>
             <td class="text-center">{{ $loop->iteration }}</td>
-            <td class="text-center">{{ $category->name }}</td>
+            <td class="text-center">{{ $categoryy->name }}</td>
             <td class="td-actions text-center">
              
               <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
