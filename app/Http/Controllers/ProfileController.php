@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class ProfileController extends Controller
 {
-    public function profile()
+    public function index()
     {
         $data = [
             'title' => 'Profile',
-            'active' => 'profiles',
+            'active' => 'Profiles'
         ];
         return view('profile.profile', $data);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -11,6 +12,7 @@ class CategoryController extends Controller
         $data = [
             'title' => 'Category',
             'active' => 'categories',
+            'categories' => Category::all(),
         ];
         return view('categories.categories', $data);
     }

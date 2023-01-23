@@ -4,7 +4,7 @@
 
   
 
-<div class="row">
+<div class="row justify-content-center">
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card ">
       <div class="card-body p-3 primary">
@@ -75,5 +75,36 @@
  
 </div>
   
+
+{{-- table --}}
+<div class="row justify-content-center mt-5">
+  <table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">No</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Book Title</th>
+            <th class="text-center">Rent Date</th>
+            <th class="text-center">Return Date</th>
+            <th class="text-center">Actual Return Date</th>
+            <th class="text-center">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="text-center">1</td>
+            <td class="text-center">1</td>
+            <td class="text-center">1</td>
+            <td class="text-center">No Data</td>
+            <td class="text-center">1</td>
+            <td class="text-center">1</td>
+            <td class="text-center">1</td>
+           
+        </tr>
+    
+    </tbody>
+  </table>
+</div>
+
 @endsection  
   

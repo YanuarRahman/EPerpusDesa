@@ -20,7 +20,7 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 })->middleware('auth');
 Route::get('/test', function () {
     return view('test');
