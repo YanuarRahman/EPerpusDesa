@@ -12,7 +12,7 @@
       {{-- admin --}}
       @if (Auth::user()->role_id == 1)
       <li class="nav-item">
-        <a class="nav-link active" href="{{ asset('/dashboardVendor') }}/pages/dashboard.html">
+        <a class="nav-link {{ ($active === "dashboard" ? 'active' : '') }}" href="{{ asset('/dashboardVendor') }}/pages/dashboard.html">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
           </div>
@@ -20,7 +20,15 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="{{ asset('/dashboardVendor') }}/pages/tables.html">
+        <a class="nav-link {{ ($active === "user" ? 'active' : '') }}" href="/user">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-single-02 text-danger text-sm opacity-10"></i>
+          </div>
+          <span class="nav-link-text ms-1">Users</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ ($active === "books" ? 'active' : '') }}" href="/books">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-book-bookmark text-warning text-sm opacity-10"></i>
           </div>
@@ -28,7 +36,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="{{ asset('/dashboardVendor') }}/pages/billing.html">
+        <a class="nav-link {{ ($active === "categories" ? 'active' : '') }}" href="/categories">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
           </div>
@@ -36,7 +44,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="{{ asset('/dashboardVendor') }}/pages/virtual-reality.html">
+        <a class="nav-link {{ ($active === "rent-logs" ? 'active' : '') }}" href="/rent-logs">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-badge text-info text-sm opacity-10"></i>
           </div>
@@ -46,7 +54,7 @@
       @elseif (Auth::user()->role_id == 2)
       {{-- user --}}
       <li class="nav-item">
-        <a class="nav-link " href="{{ asset('/dashboardVendor') }}/pages/profile.html">
+        <a class="nav-link " href="/dashboard">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
           </div>

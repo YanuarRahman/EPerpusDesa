@@ -1,7 +1,7 @@
 @extends('dashboard.layout.main')
 @section('container')
-  <h6>Profile</h6>
+  <h6>Category</h6>
 
-  This Is Profile
+  This Is Category
 @endsection  
   

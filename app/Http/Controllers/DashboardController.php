@@ -16,6 +16,7 @@ class DashboardController extends Controller
             'book' => Book::count(),
             'category' => Category::count(),
             'user' => User::count(),
+            'active' => 'dashboard',
         ];
         return view('dashboard.dashboard', $data);
     }

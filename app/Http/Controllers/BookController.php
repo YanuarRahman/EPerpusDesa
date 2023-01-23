@@ -8,6 +8,10 @@ class BookController extends Controller
 {
     public function index()
     {
-        'ini halaman buku';
+        $data = [
+            'title' => 'books',
+            'active' => 'books'
+        ];
+        return view('books.books', $data);
     }
 }
