@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->string('slug', 255)->after('name');
+            $table->string('slug', 255)->nullable()->after('name');
         });
     }
 
