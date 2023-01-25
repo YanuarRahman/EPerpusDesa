@@ -25,15 +25,14 @@
           </tr>
       </thead>
       <tbody>
-        @foreach ($categories as $categoryy)
+        @foreach ($categories as $category)
           <tr>
             <td class="text-center">{{ $loop->iteration }}</td>
-            <td class="text-center">{{ $categoryy->name }}</td>
+            <td class="text-center">{{ $category->name }}</td>
             <td class="td-actions text-center">
              
-              <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
-                Edit <i class="ni ni-settings-gear-65 pt-1"></i>
-              </button>
+             
+              <a href="category/{{ $category->slug }}" class="btn btn-info btn-icon btn-sm ">Edit <i class="ni ni-settings-gear-65 pt-1"></i></a>
               <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
                 Delete <i class="ni ni-fat-remove pt-1"></i>
                 </button>
