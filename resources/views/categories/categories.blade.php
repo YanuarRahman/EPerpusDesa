@@ -32,10 +32,14 @@
             <td class="td-actions text-center">
              
              
-              <a href="category/{{ $category->slug }}" class="btn btn-info btn-icon btn-sm ">Edit <i class="ni ni-settings-gear-65 pt-1"></i></a>
-              <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+              <a href="/categories/{{ $category->slug }}/edit" class="btn btn-info btn-icon btn-sm ">Edit <i class="ni ni-settings-gear-65 pt-1"></i></a>
+             <form action="/categories/{{ $category->slug }}" method="post" class="d-inline">
+              @method('delete')
+              @csrf
+              <button class="btn btn-danger btn-icon btn-sm " onclick="return confirm('Are You Sure!!')">
                 Delete <i class="ni ni-fat-remove pt-1"></i>
-                </button>
+              </button>
+            </form>
             </td>
             
           </tr>

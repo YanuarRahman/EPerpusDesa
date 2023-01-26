@@ -46,7 +46,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 Route::get('/profile', [UserController::class, 'profile'])->middleware(['auth', 'only_client']);
 Route::get('/books', [BookController::class, 'index']);
 
-Route::resource('/categories', CategoryController::class);
-// Route::get('/categories', [CategoryController::class, 'index']);
+// Route::resource('/categories', CategoryController::class);
+// jika route resource nya slug
+Route::resource('/categories', CategoryController::class)->parameters([
+    'categories' => 'categories:slug',
+]);
 
 Route::get('/rent-logs', [RentLogController::class, 'index']);

@@ -71,9 +71,15 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Category $category, Request $request)
     {
-        return view('categories.edit');
+        $data = [
+            'active' => 'Categories',
+            'title' => 'Categories',
+            'category' => $category,
+            'name' => $request,
+        ];
+        return view('categories.edit', $data);
     }
 
     /**
@@ -96,6 +102,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        Category::destroy($category->id);
+        return redirect('categories')->with('success', 'Category Removed!!');
     }
 }
