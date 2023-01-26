@@ -33,9 +33,10 @@
              
              
               <a href="/categories/{{ $category->slug }}/edit" class="btn btn-info btn-icon btn-sm ">Edit <i class="ni ni-settings-gear-65 pt-1"></i></a>
+              {{-- <a href="/categories/{{ $category->slug }}" class="btn btn-danger btn-icon btn-sm "  onclick="return confirm('Are You Sure!!')">Delete <i class="ni ni-fat-remove pt-1"></i></a> --}}
              <form action="/categories/{{ $category->slug }}" method="post" class="d-inline">
-              @method('delete')
               @csrf
+              @method('delete')
               <button class="btn btn-danger btn-icon btn-sm " onclick="return confirm('Are You Sure!!')">
                 Delete <i class="ni ni-fat-remove pt-1"></i>
               </button>
