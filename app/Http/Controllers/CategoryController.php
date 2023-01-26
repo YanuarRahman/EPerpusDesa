@@ -30,7 +30,7 @@ class CategoryController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Create Category',
+            'title' => 'categories',
             'active' => 'categories',
 
         ];
@@ -74,7 +74,7 @@ class CategoryController extends Controller
     public function edit($slug)
     {
         $data = [
-            'active' => 'Categories',
+            'active' => 'categories',
             'title' => 'Categories',
             'category' => Category::where('slug', $slug)->first(),
         ];

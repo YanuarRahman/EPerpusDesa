@@ -11,7 +11,7 @@ class Category extends Model
 {
     use HasFactory;
     use Sluggable;
-    use SoftDeletes;
+    // use SoftDeletes;
 
     protected $guarded = ['id'];
 
