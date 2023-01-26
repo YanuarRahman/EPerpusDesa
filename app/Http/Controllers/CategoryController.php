@@ -71,13 +71,12 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category, Request $request)
+    public function edit($slug)
     {
         $data = [
             'active' => 'Categories',
             'title' => 'Categories',
-            'category' => $category,
-            'name' => $request,
+            'category' => Category::where('slug', $slug)->first(),
         ];
         return view('categories.edit', $data);
     }
@@ -89,9 +88,16 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Category $category, $slug)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|max:15|min:3|unique:categories',
+        ]);
+
+        $category = Category::where('slug', $slug)->first();
+        $category->slug = null;
+        $category->update($validateData);
+        return redirect('/categories')->with('success', "Data Success Updated!");
     }
 
     /**
@@ -102,7 +108,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        Category::destroy($category->id);
+        Category::destroy($category->slug);
         return redirect('categories')->with('success', 'Category Removed!!');
     }
 }

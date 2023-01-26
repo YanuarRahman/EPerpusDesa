@@ -4,10 +4,11 @@
 
 <form action="/categories/{{ $category->slug }}" method="post">
     @csrf
+    @method('put')
     <div class="col-md-6">
         <div class="form-group">
             <label for="name" id="name" name="name" >Name :</label>
-            <input type="text" class="form-control form-control-alternative @error('name') is-invalid @enderror" id="name" for="name" name="name" autofocus value="{{ old('name', $category->name )}}">
+            <input type="text" class="form-control form-control-alternative @error('name') is-invalid @enderror" id="name" for="name" name="name"  value="{{ old('name', $category->name )}}" autofocus>
             @error('name')
             <div class="invalid-feedback">
               {{ $message }}
