@@ -39,9 +39,13 @@
           <button type="button" rel="tooltip" class="btn btn-warning btn-icon btn-sm " data-original-title="" title="">
             <i class="ni ni-settings pt-1"></i>
           </button>
-          <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
-            <i class="ni ni-fat-remove pt-1"></i>
+          <form action="/books/{{ $book->slug }}" method="post" class="d-inline">
+            @csrf
+            @method('delete')
+            <button class="btn btn-danger btn-icon btn-sm " onclick="return confirm('Are You Sure!!')">
+              <i class="ni ni-fat-remove pt-1"></i>
             </button>
+          </form>
         </td>
       </tr>
     @endforeach
