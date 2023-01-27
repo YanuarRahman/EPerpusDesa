@@ -36,9 +36,7 @@
           <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
             <i class="ni ni-bold-up pt-1"></i>
           </button>
-          <button type="button" rel="tooltip" class="btn btn-warning btn-icon btn-sm " data-original-title="" title="">
-            <i class="ni ni-settings pt-1"></i>
-          </button>
+          <a href="/books/{{ $book->slug }}/edit" class="btn btn-warning btn-icon btn-sm "> <i class="ni ni-settings pt-1"></i></a>
           <form action="/books/{{ $book->slug }}" method="post" class="d-inline">
             @csrf
             @method('delete')

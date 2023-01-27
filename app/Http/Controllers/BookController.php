@@ -71,9 +71,14 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book)
+    public function edit(Book $book, $slug)
     {
-        //
+        $data = [
+            'active' => 'books',
+            'title' => 'Edit Book',
+            'books' => Book::where('slug', $slug)->first(),
+        ];
+        return view('books.edit', $data);
     }
 
     /**
@@ -83,9 +88,18 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, Book $book, $slug)
     {
-        //
+        $validateData = $request->validate([
+            'book_code' => 'required',
+            'title' => 'required|max:100',
+            'books' => Book::all(),
+        ]);
+
+        $book = Book::where('slug', $slug)->first();
+        $book->slug = null;
+        $book->update($validateData);
+        return redirect('/books')->with('success', "Book Success Updated!");
     }
 
     /**
