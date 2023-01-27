@@ -45,7 +45,13 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'book_code' => 'required',
+            'title' => 'required|max:100',
+        ]);
+
+        Book::create($validateData);
+        return redirect('books')->with('success', 'Books Success Added!');
     }
 
     /**

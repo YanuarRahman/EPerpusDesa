@@ -51,6 +51,8 @@ Route::resource('/categories', CategoryController::class)->parameters([
     'categories' => 'categories:slug',
 ]);
 
-Route::resource('/books', BookController::class);
+Route::resource('/books', BookController::class)->parameters([
+    'books' => 'books:slug',
+]);
 
 Route::get('/rent-logs', [RentLogController::class, 'index']);

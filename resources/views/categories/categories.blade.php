@@ -12,7 +12,7 @@
             {{ session('success') }}
           </div>
       </div>
-@endif
+    @endif
 
  <div class="row">
   <div class="col-md-8">
@@ -50,13 +50,13 @@
   </div>
  </div>
 
- <script>
+ {{-- <script>
   window.setTimeout(function() {
     $(".alert").fadeTo(500, 0).slideUp(500, function(){
     $(this).remove(); 
     });
   }, 5000);
-</script>
+</script> --}}
 
 @endsection  
   

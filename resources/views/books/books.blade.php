@@ -4,6 +4,16 @@
  <div class="text-start">
   <a href="/books/create" class="btn btn-success btn-icon btn-sm mt-2" role="button">Add Category <i class="ni ni-fat-add"></i></a>
 </div>
+
+  {{-- flash --}}
+  @if(session()->has('success'))
+    <div class="col-md-6">
+      <div class="alert alert-success alert-dismissible">
+        {{ session('success') }}
+      </div>
+    </div>
+  @endif
+
  {{-- table--}}
  <table class="table">
   <thead>
