@@ -44,12 +44,13 @@ Route::get('/logout', [AuthController::class, 'logout']);
 // dashbord
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'only_admin']);
 Route::get('/profile', [UserController::class, 'profile'])->middleware(['auth', 'only_client']);
-Route::get('/books', [BookController::class, 'index']);
 
 // Route::resource('/categories', CategoryController::class);
 // jika route resource nya slug
 Route::resource('/categories', CategoryController::class)->parameters([
     'categories' => 'categories:slug',
 ]);
+
+Route::resource('/books', BookController::class);
 
 Route::get('/rent-logs', [RentLogController::class, 'index']);

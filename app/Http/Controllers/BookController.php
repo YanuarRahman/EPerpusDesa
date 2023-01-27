@@ -16,7 +16,8 @@ class BookController extends Controller
     {
         $data = [
             'active' => "books",
-            'title' => "Books"
+            'title' => "Books",
+            'books' => Book::all(),
         ];
 
         return view('books.books', $data);
@@ -29,7 +30,11 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'active' => "books",
+            'title' => "Add Books",
+        ];
+        return view('books.create', $data);
     }
 
     /**
