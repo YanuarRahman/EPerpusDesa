@@ -20,9 +20,9 @@
               {{ $message }}
             </div>
           @enderror
-            <label for="cover" id="cover" name="cover" >Cover Book:</label>
-            <input type="file" class="form-control form-control-alternative @error('cover') is-invalid @enderror" id="cover" for="cover" name="cover" placeholder="Book Code.." autofocus>
-            @error('cover')
+            <label for="image" id="image" name="image" >Image Book:</label>
+            <input type="file" class="form-control form-control-alternative @error('image') is-invalid @enderror" id="image" for="image" name="image" placeholder="Book Code.." autofocus>
+            @error('image')
             <div class="invalid-feedback">
               {{ $message }}
             </div>

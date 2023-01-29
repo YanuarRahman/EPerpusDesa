@@ -46,10 +46,20 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'book_code' => 'required',
+            'book_code' => 'required|unique:books',
             'title' => 'required|max:100',
         ]);
 
+        // uploadmimage
+        if ($request->file('image')) {
+            // dapetin extensions
+            $extension = $request->file('image')->getClientOriginalExtension();
+            // nimpa extensin ke nama yang baru
+            $newName = $request->title . '-' . now()->timestamp . '.' . $extension;
+            $request->file('image')->storeAs('cover', $newName);
+        };
+
+        $request['cover'] = $newName;
         Book::create($validateData);
         return redirect('books')->with('success', 'Books Success Added!');
     }
