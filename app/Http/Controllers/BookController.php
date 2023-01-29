@@ -51,6 +51,7 @@ class BookController extends Controller
         ]);
 
         // uploadmimage
+        $newName = '';
         if ($request->file('image')) {
             // dapetin extensions
             $extension = $request->file('image')->getClientOriginalExtension();
