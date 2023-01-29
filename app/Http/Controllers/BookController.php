@@ -63,7 +63,8 @@ class BookController extends Controller
         };
 
         $request['cover'] = $newName;
-        Book::create($validateData);
+        $query = Book::create($validateData);
+        $query->categories()->sync($request->category);
         return redirect('books')->with('success', 'Books Success Added!');
     }
 
