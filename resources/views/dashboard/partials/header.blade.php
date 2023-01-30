@@ -19,4 +19,6 @@
   <link href="{{ asset('/dashboardVendor') }}/assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ asset('/dashboardVendor') }}/assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+{{-- select --}}
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
