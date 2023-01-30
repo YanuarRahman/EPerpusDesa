@@ -112,9 +112,24 @@ class BookController extends Controller
             'books' => Book::all(),
         ]);
 
+        if ($request->file('image')) {
+            // dapetin extensions
+            $extension = $request->file('image')->getClientOriginalExtension();
+            // nimpa extensin ke nama yang baru
+            $newName = $request->title . '-' . now()->timestamp . '.' . $extension;
+            $request->file('image')->storeAs('cover', $newName);
+            $request['cover'] = $newName;
+        };
+
+
         $book = Book::where('slug', $slug)->first();
         $book->slug = null;
         $book->update($validateData);
+
+        if ($request->categories) {
+            $book->categories()->sync($request->categories);
+        }
+
         return redirect('/books')->with('success', "Book Success Updated!");
     }
 
