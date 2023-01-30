@@ -19,6 +19,7 @@ class BookController extends Controller
             'active' => "books",
             'title' => "Books",
             'books' => Book::all(),
+            'categories' => Category::all(),
         ];
 
         return view('books.books', $data);
@@ -85,12 +86,13 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book, $slug)
+    public function edit($slug)
     {
         $data = [
             'active' => 'books',
             'title' => 'Edit Book',
             'books' => Book::where('slug', $slug)->first(),
+            'categories' => Category::all(),
         ];
         return view('books.edit', $data);
     }
