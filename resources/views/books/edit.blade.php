@@ -2,6 +2,7 @@
 @section('container')
 
 <h6>Edit Books</h6>
+<a href="/books" class="btn btn-primary btn-icon btn-sm mt-2"><i class="ni ni-bold-left"></i> Back</a>
 <form action="/books/{{ $books->slug }}" method="post" enctype="multipart/form-data">
     @csrf
     @method('put')
@@ -30,7 +31,7 @@
             </ul>
           </div>
           <label for="category">Category Book :</label>
-            <select name="category[]" id="category" for="category" class="form-control select-multiple" multiple>
+            <select name="categories[]" id="category" for="category" class="form-control select-multiple" multiple>
               @foreach ($categories as $category)
               <option value="{{ $category->id }}">{{ $category->name }}</option>
               @endforeach
@@ -40,12 +41,12 @@
               @if ($books->cover)
                   <img src="{{ asset('storage/cover/'.$books->cover) }}" alt="" width="200px">
               @else
-                  <img src="{{ asset('img/default.png') }}" alt="" width="200px">
+                  <img src="{{ asset('image/default.png') }}" alt="" width="200px">
               @endif
             </div>
-            <label for="cover" id="cover" name="cover" >Cover Book:</label>
-            <input type="file" class="form-control form-control-alternative @error('cover') is-invalid @enderror" id="cover" for="cover" name="cover" placeholder="Book Code.." value="">
-            @error('cover')
+            <label for="image" id="image" name="image" >Cover Book:</label>
+            <input type="file" class="form-control form-control-alternative @error('image') is-invalid @enderror" id="image" for="image" name="image" placeholder="Book Code.." value="">
+            @error('image')
             <div class="invalid-feedback">
               {{ $message }}
             </div>
@@ -59,7 +60,7 @@
           @enderror --}}
         </div>
         <button type="submit" rel="tooltip" class="btn btn-success btn-icon btn-sm" data-original-title="" title="">
-            Add Category<i class="ni ni-fat-add"></i>
+            Edit Category<i class="ni ni-fat-add"></i>
           </button>
     </div>
 </form>

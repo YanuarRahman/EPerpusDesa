@@ -2,7 +2,8 @@
 @section('container')
   <h6>Books Page</h6>
  <div class="text-start">
-  <a href="/books/create" class="btn btn-success btn-icon btn-sm mt-2" role="button">Add Category <i class="ni ni-fat-add"></i></a>
+  
+  <a href="/books/create" class="btn btn-success btn-icon btn-sm mt-2" role="button">Add Books <i class="ni ni-fat-add"></i></a>
 </div>
 
   {{-- flash --}}

@@ -1,7 +1,7 @@
 @extends('dashboard.layout.main')
 @section('container')
 <h6>Edit Category</h6>
-
+<a href="/categories" class="btn btn-primary btn-icon btn-sm mt-2"><i class="ni ni-bold-left"></i> Back</a>
 <form action="/categories/{{ $category->slug }}" method="post">
     @csrf
     @method('put')

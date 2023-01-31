@@ -104,13 +104,8 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book, $slug)
+    public function update(Request $request, $slug)
     {
-        $validateData = $request->validate([
-            'book_code' => 'required',
-            'title' => 'required|max:100',
-            'books' => Book::all(),
-        ]);
 
         if ($request->file('image')) {
             // dapetin extensions
@@ -121,10 +116,14 @@ class BookController extends Controller
             $request['cover'] = $newName;
         };
 
+        // $validateData = $request->validate([
+        //     'book_code' => 'required',
+        //     'title' => 'required|max:100',
+
+        // ]);
 
         $book = Book::where('slug', $slug)->first();
-        $book->slug = null;
-        $book->update($validateData);
+        $book->update($request->all());;
 
         if ($request->categories) {
             $book->categories()->sync($request->categories);
