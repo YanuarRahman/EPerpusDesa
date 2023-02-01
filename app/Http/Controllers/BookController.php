@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
@@ -64,7 +65,7 @@ class BookController extends Controller
         };
 
         $request['cover'] = $newName;
-        $query = Book::create($validateData);
+        $query = Book::create($request->all());
         $query->categories()->sync($request->category);
         return redirect('books')->with('success', 'Books Success Added!');
     }
@@ -140,6 +141,9 @@ class BookController extends Controller
      */
     public function destroy(Book $book, $slug)
     {
+        if ($book->cover) {
+            Storage::delete($book->cover);
+        };
         $delete = Book::where('slug', $slug)->first();
         $delete->delete();
         return redirect('/books')->with('success', 'Book Removed!!');
