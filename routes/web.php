@@ -43,6 +43,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 // dashbord
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'only_admin']);
+Route::get('/user', [UserController::class, 'index'])->middleware(['auth', 'only_admin']);
 Route::get('/profile', [UserController::class, 'profile'])->middleware(['auth', 'only_client']);
 
 // Route::resource('/categories', CategoryController::class);
